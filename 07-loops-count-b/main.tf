@@ -23,7 +23,9 @@ resource "local_file" "foo" {
 
 variable "demo" {
   default = [
+    "orange",
     "apple",
-    "banana"
+    "banana",
+    "apricot"
   ]
 }
