@@ -37,3 +37,9 @@ output "o3" {
 output "o4" {
   value = var.v3["cloud"]
 }
+
+### Example for terraform.tfvars
+variable "v10" {}
+output "o10" {
+  value = var.v10
+}
