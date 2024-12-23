@@ -43,3 +43,9 @@ variable "v10" {}
 output "o10" {
   value = var.v10
 }
+
+### Example for other tfvars
+variable "env" {}
+output "o11" {
+  value = var.env
+}
