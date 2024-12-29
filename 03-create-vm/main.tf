@@ -1,3 +1,18 @@
+provider "azurerm" {
+  features {}
+  subscription_id = "9af0e83a-d3ee-4c3c-a244-3274a3457024"
+}
+
+data "azurerm_resource_group" "example" {
+  name = "project-setup-1"     ### This is from your azure portal
+}
+
+data "azurerm_subnet" "example" {
+  name                 = "default"                ### This is from your azure portal
+  virtual_network_name = "project-setup-network"  ### This is from your azure portal
+  resource_group_name  = data.azurerm_resource_group.example.name
+}
+
 resource "azurerm_network_interface" "example" {
   name                = "test-nic"
   location            = data.azurerm_resource_group.example.location
