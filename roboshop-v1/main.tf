@@ -1,7 +1,7 @@
 module "vm" {
   for_each = var.components
   source = "./vm"
-  vm_name = each.value["name"]
+  component = each.value["name"]
   vm_size = each.value["size"]
 }
 

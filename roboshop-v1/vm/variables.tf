@@ -1,2 +1,2 @@
-variable "vm_name" {}
+variable "component" {}
 variable "vm_size" {}

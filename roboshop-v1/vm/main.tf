@@ -1,5 +1,5 @@
 resource "azurerm_network_interface" "main" {
-  name                = "${var.vm_name}.-nic"
+  name                = "${var.component}.-nic"
   location            = data.azurerm_resource_group.example.location
   resource_group_name = data.azurerm_resource_group.example.name
 
@@ -12,18 +12,18 @@ resource "azurerm_network_interface" "main" {
 }
 
 resource "azurerm_public_ip" "main" {
-  name                = "${var.vm_name}.-ip"
+  name                = "${var.component}.-ip"
   location              = data.azurerm_resource_group.example.location
   resource_group_name   = data.azurerm_resource_group.example.name
   allocation_method   = "Static"
 
   tags = {
-    component = var.vm_name
+    component = var.component
   }
 }
 
 resource "azurerm_virtual_machine" "main" {
-  name                  = var.vm_name
+  name                  = var.component
   location              = data.azurerm_resource_group.example.location
   resource_group_name   = data.azurerm_resource_group.example.name
   network_interface_ids = [azurerm_network_interface.main.id]
@@ -42,13 +42,13 @@ resource "azurerm_virtual_machine" "main" {
     version   = "latest"
   }
   storage_os_disk {
-    name              = "${var.vm_name}.-disk"
+    name              = "${var.component}.-disk"
     caching           = "ReadWrite"
     create_option     = "FromImage"
     managed_disk_type = "Standard_LRS"
   }
   os_profile {
-    computer_name  = var.vm_name
+    computer_name  = var.component
     admin_username = "testadmin"
     admin_password = "Password1234!"
   }
@@ -56,6 +56,6 @@ resource "azurerm_virtual_machine" "main" {
     disable_password_authentication = false
   }
   tags = {
-    component = var.vm_name
+    component = var.component
   }
 }
