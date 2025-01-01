@@ -15,7 +15,7 @@ resource "azurerm_public_ip" "main" {
   name                = "${var.component}.-ip"
   location              = data.azurerm_resource_group.example.location
   resource_group_name   = data.azurerm_resource_group.example.name
-  allocation_method   = "Dynamic"
+  allocation_method   = "Static"
 
   tags = {
     component = var.component
@@ -42,13 +42,13 @@ resource "azurerm_virtual_machine" "main" {
     version   = "latest"
   }
   storage_os_disk {
-    name              = "myosdisk1"
+    name              = var.component
     caching           = "ReadWrite"
     create_option     = "FromImage"
     managed_disk_type = "Standard_LRS"
   }
   os_profile {
-    computer_name  = "hostname"
+    computer_name  = var.component
     admin_username = "testadmin"
     admin_password = "Password1234!"
   }
