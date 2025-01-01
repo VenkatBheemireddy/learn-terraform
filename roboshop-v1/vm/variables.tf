@@ -1,1 +1,2 @@
 variable "component" {}
+variable "size" {}
