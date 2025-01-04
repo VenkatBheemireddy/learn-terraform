@@ -11,7 +11,7 @@ provider "vault" {
 
 variable "token" {}
 
-### Method - 1 to get the secret.
+###Method - 2 to get the secret.
 
 data "vault_generic_secret" "secret_data" {
   path = "test/demo-ssh"
