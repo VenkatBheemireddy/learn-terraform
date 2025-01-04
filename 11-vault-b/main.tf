@@ -11,6 +11,8 @@ provider "vault" {
 
 variable "token" {}
 
+### Method - 1 to get the secret.
+
 data "vault_generic_secret" "secret_data" {
   path = "test/demo-ssh"
 }
@@ -26,4 +28,8 @@ resource "local_file" "local" {
 # terraform apply -auto-approve -var token=hvs.sXaXB22fmRP8zQMpGPRKROEF
 
 # Output: Only the password will be printed
+
+
+
+
 
