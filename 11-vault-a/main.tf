@@ -14,3 +14,4 @@ resource "local_file" "full" {
 # content = data.vault_kv_secret.secret_data.data
   content = replace(replace(jsonencode(data.vault_kv_secret.secret_data), "\"", ""), ":", "=")
 }
+
