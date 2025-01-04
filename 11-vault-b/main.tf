@@ -25,7 +25,7 @@ resource "local_file" "local" {
 # Execution:
 # git pull
 # terraform init
-# terraform apply -auto-approve -var token=hvs.sXaXB22fmRP8zQMpGPRKROEF
+# terraform apply -auto-approve -var token=<root-pwd>
 # Output: Only the password will be printed
 
 

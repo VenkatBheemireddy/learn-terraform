@@ -26,6 +26,7 @@ resource "local_file" "full" {
 # Execution:
 # git pull
 # terraform init
+# terraform apply -auto-approve -var token=<root-pwd>
 # Output: Along with the Password, this output will give more information
 
 
