@@ -11,7 +11,7 @@ provider "vault" {
 
 variable "token" {}
 
-### Method - 1 to get the secret.
+### Method - 1 to get the secret using local_file resource
 
 data "vault_kv_secret" "secret_data" {
   path = "test/data/demo-ssh"
